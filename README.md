@@ -66,7 +66,10 @@ This script interacts with a Notion database to store and manage information abo
         - Select "Table" to create a table-based database.
 
     3. **Add the Following Fields**:
-
+    
+    <details>
+      <summary>Click to expand the list of fields</summary>
+      
         - **House ID**:
           - Type: Title
           - This is the primary field for the house ID.
@@ -127,10 +130,17 @@ This script interacts with a Notion database to store and manage information abo
         - **9292 S. Link**:
           - Type: Formula
           - Formula: `concat("https://9292.nl/en/journeyadvice/", replaceAll(lower(prop("City")), " ", "-"), "_", replaceAll(lower(prop("ZIP Code")), " ", ""), "/amsterdam_1082me/")`
-          
+          - Note: Replace `amsterdam_1082me` with the relevant city and ZIP code of office S.
+
         - **9292 V. Link**:
           - Type: Formula
           - Formula: `concat("https://9292.nl/en/journeyadvice/", replaceAll(lower(prop("City")), " ", "-"), "_", replaceAll(lower(prop("ZIP Code")), " ", ""), "/utrecht_3521cb/")`
+          - Note: Replace `utrecht_3521cb` with the relevant city and ZIP code of office V.
+    </details>
+
+    4. **Customize and Save**:
+        - Customize the database view and properties as needed.
+        - Save the database and copy its ID to use in your `.env` file.
 
 2. **Get information from Notion**:
     - **Notion Secret**: You can obtain your Notion Integration token (secret) by creating an integration in Notion:
@@ -143,6 +153,7 @@ This script interacts with a Notion database to store and manage information abo
 3. **Set up environment variables**:
     Add the following environment variables to your `.env` file:
     ```env
+    GOOGLE_API_KEY=your_google_api_key
     NOTION_SECRET=your_notion_secret
     NOTION_DATABASE_ID=your_notion_database_id
     ```
