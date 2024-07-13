@@ -1,4 +1,4 @@
-# House Searcher
+# Funda Collector
 
 This script searches for new houses on Funda and sends the data to a specified Notion database. It utilizes the FundaScraper library for scraping house listings and integrates with the Google Maps API for additional data processing.
 
@@ -13,7 +13,7 @@ This script searches for new houses on Funda and sends the data to a specified N
 
 1. **Clone the repository**:
     ```sh
-    git clone https://github.com/yourusername/house-searcher.git
+    git clone git@github.com:semen-tarasov/Funda-Collector.git
     cd house-searcher
     ```
 
