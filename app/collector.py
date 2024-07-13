@@ -60,17 +60,23 @@ def slug_to_title(slug: str) -> str:
 
 def create_scores_dict_from_csv() -> dict:
     """
-    Reads 'scores.csv' located in the same directory as the script and constructs a dictionary from its contents.
+    Reads 'scores.csv' located in the data directory relative to the script
+    and constructs a dictionary from its contents, focusing on the latest year's data.
 
     Returns:
-        dict: A dictionary with 'PC4' as keys and 'afw' as float values.
+        dict: A dictionary with 'PC4' as keys and 'afw' as float values for the latest year.
     """
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, "scores.csv")
+    data_dir = os.path.join(script_dir, "data")
+    file_path = os.path.join(data_dir, "scores.csv")
+
     df = pd.read_csv(file_path)
 
+    latest_year = df["year"].max()
+    latest_year_data = df[df["year"] == latest_year]
+
     result_dict = {}
-    for _, row in df.iterrows():
+    for _, row in latest_year_data.iterrows():
         pc4 = int(row["PC4"])
         result_dict[pc4] = float(row["afw"])
 
