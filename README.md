@@ -4,6 +4,8 @@
 
 This script searches for new houses on Funda and sends the data to a specified Notion database. It utilizes the FundaScraper library for scraping house listings and integrates with the Google Maps API for additional data processing.
 
+[Example Notion Database](https://wakeful-nutmeg-ccd.notion.site/14b9a5808bc24271b2444c19a0334965?v=45e4359626cc4a74b65262cfd195d4c2&pvs=4)
+
 ## Table of Contents
 - [Installation](#installation)
 - [Configuration](#configuration)
