@@ -1,5 +1,7 @@
 # Funda Collector
 
+![Example Screenshot](images/example.png)
+
 This script searches for new houses on Funda and sends the data to a specified Notion database. It utilizes the FundaScraper library for scraping house listings and integrates with the Google Maps API for additional data processing.
 
 ## Table of Contents
