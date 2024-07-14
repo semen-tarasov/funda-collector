@@ -29,7 +29,7 @@ This script searches for new houses on Funda and sends the data to a specified N
     ```
 
 ## Configuration
-Create a `.env` file in the root directory of your project and add the following environment variables.
+A template `.env` file has been created and added to the `app` directory. You need to update this file with your relevant data.
 
 ### Google API
 
@@ -56,91 +56,13 @@ Follow these steps to set up the Google API:
 
 This script interacts with a Notion database to store and manage information about houses. To enable this functionality, you'll need to configure environment variables and set up the database in Notion.
 
-1. **Create a Notion Database**:
-    To create a Notion database that matches the expected schema, follow these steps:
+1. **Copy a Notion Database**:
+    Instead of manually creating a database, you can copy a database from the following public example: [Example Notion Database](https://wakeful-nutmeg-ccd.notion.site/14b9a5808bc24271b2444c19a0334965?v=45e4359626cc4a74b65262cfd195d4c2&pvs=4).
 
-    1. **Open Notion**: Open your Notion workspace and navigate to the page where you want to create the database.
-
-    2. **Create a New Database**:
-        - Click on the `+` button or type `/database` to create a new database.
-        - Select "Table" to create a table-based database.
-
-    3. **Add the Following Fields**:
-    
-    <details>
-      <summary>Click to expand the list of fields</summary>
-      
-        - **House ID**:
-          - Type: Title
-          - This is the primary field for the house ID.
-
-        - **URL**:
-          - Type: URL
-          - Store the URL of the house listing.
-
-        - **Post Address**:
-          - Type: Rich Text
-          - The full postal address of the house.
-
-        - **City**:
-          - Type: Rich Text
-          - The city where the house is located.
-
-        - **ZIP Code**:
-          - Type: Rich Text
-          - The ZIP code of the house.
-
-        - **Price**:
-          - Type: Number
-          - Set the number format to Euro.
-
-        - **Time to office S.**:
-          - Type: Rich Text
-          - Travel time from the house to office S.
-
-        - **Time to office V.**:
-          - Type: Rich Text
-          - Travel time from the house to office V.
-
-        - **Life Level Score**:
-          - Type: Number
-          - Set the number format to "Number with commas".
-
-        - **Status**:
-          - Type: Status
-          - Use default status options or customize as needed:
-            - New
-            - Not sure
-            - Thinking
-            - Viewing Scheduled
-            - Waiting List
-            - Need to Call
-            - Declined
-            - Sold
-            - Bought
-
-        - **Comment**:
-          - Type: Rich Text
-          - Any additional comments or notes about the house.
-
-        - **View**:
-          - Type: Date
-          - The date when the house was viewed.
-
-        - **9292 S. Link**:
-          - Type: Formula
-          - Formula: `concat("https://9292.nl/en/journeyadvice/", replaceAll(lower(prop("City")), " ", "-"), "_", replaceAll(lower(prop("ZIP Code")), " ", ""), "/amsterdam_1082me/")`
-          - Note: Replace `amsterdam_1082me` with the relevant city and ZIP code of office S.
-
-        - **9292 V. Link**:
-          - Type: Formula
-          - Formula: `concat("https://9292.nl/en/journeyadvice/", replaceAll(lower(prop("City")), " ", "-"), "_", replaceAll(lower(prop("ZIP Code")), " ", ""), "/utrecht_3521cb/")`
-          - Note: Replace `utrecht_3521cb` with the relevant city and ZIP code of office V.
-    </details>
-
-    4. **Customize and Save**:
-        - Customize the database view and properties as needed.
-        - Save the database and copy its ID to use in your `.env` file.
+    1. **Open the Example Database**: Open the public example database link provided above.
+    2. **Duplicate the Database**:
+        - Click on the three dots in the top right corner of the database.
+        - Select "Duplicate" to add a copy of the database to your own Notion workspace.
 
 2. **Get information from Notion**:
     - **Notion Secret**: You can obtain your Notion Integration token (secret) by creating an integration in Notion:
@@ -159,10 +81,16 @@ This script interacts with a Notion database to store and manage information abo
 
 ### Life Level Scores
 
-As the source of information for the current life level score, the script uses data from the Dutch government. You can download the CSV with information about scores for different addresses from this link: [Leefbaarometer Opendata](https://www.leefbaarometer.nl/page/Opendata#scores).
+As the source of information for the current life level score, the script uses data from the Dutch government. The latest version of the file with scores is already included in the `data` folder as of the time of writing this script. By default, no additional actions are required. However, if you want to update the scores, you can follow these instructions:
 
-In the downloaded archive, you need the file `Leefbaarometer-scores PC4 {years}.csv`. This file should contain `PC4` and `afw` columns. 
-Rename this file to `scores.csv` and place it in the `data` folder.
+1. **Download the CSV with information about scores**:
+    You can download the CSV with information about scores for different addresses from this link: [Leefbaarometer Opendata](https://www.leefbaarometer.nl/page/Opendata#scores).
+
+2. **Prepare the CSV file**:
+    In the downloaded archive, you need the file `Leefbaarometer-scores PC4 {years}.csv`. This file should contain `PC4` and `afw` columns. 
+
+3. **Replace the existing file**:
+    Rename this file to `scores.csv` and place it in the `data` folder, replacing the existing file.
 
 ## Usage
 
