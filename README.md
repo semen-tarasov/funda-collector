@@ -153,7 +153,6 @@ This script interacts with a Notion database to store and manage information abo
 3. **Set up environment variables**:
     Add the following environment variables to your `.env` file:
     ```env
-    GOOGLE_API_KEY=your_google_api_key
     NOTION_SECRET=your_notion_secret
     NOTION_DATABASE_ID=your_notion_database_id
     ```
