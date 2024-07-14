@@ -99,7 +99,7 @@ As the source of information for the current life level score, the script uses d
 ## Usage
 
 **Run the script**:
-    ```sh
+    ```
     python searcher.py
     ```
 
