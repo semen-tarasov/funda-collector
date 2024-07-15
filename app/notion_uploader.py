@@ -54,6 +54,11 @@ class NotionUploaderService:
         """
         Initializes the NotionUploaderService with the necessary headers for API requests.
         """
+        if NOTION_SECRET == "PUT_YOUR_NOTION_SECRET_HERE":
+            raise ValueError(
+                "Notion Secret in .env file should be set. Now it contains an example value."
+            )
+
         self.headers = {
             "Authorization": f"Bearer {NOTION_SECRET}",
             "Content-Type": "application/json",
@@ -70,6 +75,11 @@ class NotionUploaderService:
         Returns:
             bool: True if the house is found in the Notion database, False otherwise.
         """
+        if NOTION_DATABASE_ID == "PUT_YOUR_NOTION_DATABASE_ID_HERE":
+            raise ValueError(
+                "Notion Database ID in .env file should be set. Now it contains an example value."
+            )
+
         query_url = f"https://api.notion.com/v1/databases/{NOTION_DATABASE_ID}/query"
         query_payload = {
             "filter": {"property": "House ID", "title": {"equals": house.id}}

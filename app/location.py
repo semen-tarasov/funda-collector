@@ -53,6 +53,11 @@ class LocationService:
         """
         Initializes the LocationService with a Google Maps API key.
         """
+        if GOOGLE_API_KEY == "PUT_YOUR_GOOGLE_API_KEY_HERE":
+            raise ValueError(
+                "Google API key in .env file should be set. Now it contains an example value."
+            )
+
         self.gmaps = googlemaps.Client(key=GOOGLE_API_KEY)
         self.departure_time = self.get_departure_time()
 

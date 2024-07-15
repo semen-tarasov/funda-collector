@@ -83,6 +83,18 @@ This script interacts with a Notion database to store and manage information abo
     NOTION_DATABASE_ID=your_notion_database_id
     ```
 
+### Funda Search
+
+To set search parameters, you need to define values in the `.env` file:
+
+- `CITIES`: Can be "buy" or "rent".
+
+- `FUNDA_SEARCH_TYPE`: Can be "buy" or "rent".
+- `FUNDA_SEARCH_MIN_PRICE`: The minimum price for the search.
+- `FUNDA_SEARCH_MAX_PRICE`: The maximum price for the search.
+- `FUNDA_SEARCH_DAYS_SINCE`: The number of days since the houses were listed.
+- `FUNDA_SEARCH_PROPERTY_TYPE`: The type of property to search for.
+
 ### Life Level Scores
 
 As the source of information for the current life level score, the script uses data from the Dutch government. The latest version of the file with scores is already included in the `data` folder as of the time of writing this script. By default, no additional actions are required. However, if you want to update the scores, you can follow these instructions:
@@ -124,4 +136,4 @@ Contributions are welcome! Please open an issue or submit a pull request if you 
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the GNU General Public License v3.0. See the [LICENSE](LICENSE) file for details.

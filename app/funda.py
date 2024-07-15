@@ -1,7 +1,7 @@
 """
 This module provides a service to search for houses on Funda.
 
-It includes a function to convert slugs to titles and a service class to search for houses in a 
+It includes a service class to search for houses in a 
 specified city on Funda, retrieving the search results as a dictionary.
 
 Environment Variables:
@@ -15,9 +15,6 @@ Dependencies:
     re
     os
     funda_scraper (for the FundaScraper class)
-
-Functions:
-    slug_to_title(slug: str) -> str: Converts a slug string to a title string.
 
 Classes:
     FundaService: A service class to search for houses on Funda.
@@ -42,19 +39,6 @@ FUNDA_SEARCH_MIN_PRICE = os.getenv("FUNDA_SEARCH_MIN_PRICE")
 FUNDA_SEARCH_MAX_PRICE = os.getenv("FUNDA_SEARCH_MAX_PRICE")
 FUNDA_SEARCH_DAYS_SINCE = os.getenv("FUNDA_SEARCH_DAYS_SINCE")
 FUNDA_SEARCH_PROPERTY_TYPE = os.getenv("FUNDA_SEARCH_PROPERTY_TYPE")
-
-
-def slug_to_title(slug: str) -> str:
-    """
-    Converts a slug string to a title string.
-
-    Args:
-        slug (str): The slug string to convert.
-
-    Returns:
-        str: The converted title string with each word capitalized.
-    """
-    return " ".join(word.capitalize() for word in slug.split("-"))
 
 
 @dataclass
@@ -125,8 +109,14 @@ class FundaService:
                     house_id = matches["id"].group(1)
                     house_dict = {
                         "url": url,
-                        "city": slug_to_title(matches["city"].group(1)),
-                        "address": slug_to_title(matches["address"].group(1)),
+                        "city": " ".join(
+                            word.capitalize()
+                            for word in matches["city"].group(1).split("-")
+                        ),
+                        "address": " ".join(
+                            word.capitalize()
+                            for word in matches["address"].group(1).split("-")
+                        ),
                         "price": int(matches["price"].group(1).replace(".", "")),
                     }
 
