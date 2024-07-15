@@ -1,4 +1,4 @@
 pandas
-dotenv
 googlemaps
 funda-scraper
+python-dotenv
