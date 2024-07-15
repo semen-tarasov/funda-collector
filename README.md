@@ -87,7 +87,7 @@ This script interacts with a Notion database to store and manage information abo
 
 To set search parameters, you need to define values in the `.env` file:
 
-- `CITIES`: Can be "buy" or "rent".
+- `CITIES`: Cities or locations from Funda search: better to take them from the Funda search link.
 
 - `FUNDA_SEARCH_TYPE`: Can be "buy" or "rent".
 - `FUNDA_SEARCH_MIN_PRICE`: The minimum price for the search.
