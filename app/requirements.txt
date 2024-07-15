@@ -1,3 +1,4 @@
 pandas
+dotenv
 googlemaps
 funda-scraper
