@@ -112,7 +112,7 @@ As the source of information for the current life level score, the script uses d
 
 **Run the script**:
     ```
-    python searcher.py
+    python ./app/collector.py
     ```
 
 ## Contributing
