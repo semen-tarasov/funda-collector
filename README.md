@@ -73,6 +73,7 @@ This script interacts with a Notion database to store and manage information abo
       1. Go to [Notion Integrations](https://www.notion.so/my-integrations).
       2. Click on "New Integration" and follow the instructions to create a new integration.
       3. Copy the "Internal Integration Token" and add it to your `.env` file as `NOTION_SECRET`.
+      4. Add connection to your integration from DB: 3 dots in the left upper corner -> Connect to -> Your created integration
 
     - **Notion Database ID**: You can find your database ID by opening the database in Notion and copying the part of the URL that comes after `notion.so/` and before the `?` (if present). For example, in the URL `https://www.notion.so/8c3b832c81884c67966db9098ac188d7`, the database ID is `8c3b832c81884c67966db9098ac188d7`. Add this to your `.env` file as `NOTION_DATABASE_ID`.
 
